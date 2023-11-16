@@ -1,0 +1,15 @@
+---
+
+- hosts: arangodb        
+  become: true      
+  pre_tasks:           
+
+  - name: Update Repo (CentOS)
+    tags: always
+    yum:
+      update_cache: yes
+
+- hosts: all
+  become: true
+  roles:
+    - arangodb
