@@ -1,0 +1,20 @@
+- name: Add repository
+  tags: arangodbrepo, repo
+  ansible.builtin.yum_repository:
+    name: ArangoDB Project
+    description: Arangodb Repository
+    baseurl: https://download.arangodb.com/arangodb311/RPM/arangodb.repo
+
+- name: Install Aranngodb
+  tags: arangodb, install
+  package:
+    name: arangodb3.x86_64
+
+
+#  [arangodb]
+#  name=ArangoDB Project
+#  type=rpm-md
+#  baseurl=https://download.arangodb.com/arangodb311/RPM
+#  gpgcheck=1
+#  gpgkey=https://download.arangodb.com/arangodb311/RPM/repodata/repomd.xml.key
+#  enabled=1
